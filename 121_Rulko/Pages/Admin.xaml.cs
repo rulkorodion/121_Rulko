@@ -23,6 +23,7 @@ namespace _121_Rulko.Pages
         public Admin()
         {
             InitializeComponent();
+            DataGridUser.ItemsSource = Entities.GetContext().User.ToList();
         }
     }
 }

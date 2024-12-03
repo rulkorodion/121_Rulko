@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Security.Cryptography;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
@@ -25,6 +26,14 @@ namespace _121_Rulko.Pages
             InitializeComponent();
         }
 
+        public static string GetHash(string password)
+        {
+            using (var hash = SHA1.Create())
+            {
+                return string.Concat(hash.ComputeHash(Encoding.UTF8.GetBytes(password)).Select(x => x.ToString("X2")));
+            }
+        }
+
         private void TextBoxLogin_Changed(object sender, RoutedEventArgs e)
         {
             txtHintLogin.Visibility = Visibility.Visible;
@@ -43,7 +52,7 @@ namespace _121_Rulko.Pages
             }
         }
 
-        private void Button_Click(object sender, RoutedEventArgs e)
+        private void BtnInput_Click(object sender, RoutedEventArgs e)
         {
             if (string.IsNullOrEmpty(TextBoxLogin.Text) || string.IsNullOrEmpty(PasswordBox.Password))
             {
@@ -51,11 +60,13 @@ namespace _121_Rulko.Pages
                 return;
             }
 
+            string hashedPassword = GetHash(PasswordBox.Password);
+
             using (var db = new Entities())
             {
                 var user = db.User
                     .AsNoTracking()
-                    .FirstOrDefault(u => u.Login == TextBoxLogin.Text && u.Password == PasswordBox.Password);
+                    .FirstOrDefault(u => u.Login == TextBoxLogin.Text && u.Password == hashedPassword);
 
                 if (user == null)
                 {
@@ -63,7 +74,7 @@ namespace _121_Rulko.Pages
                     return;
                 }
 
-                else if(user.Login == TextBoxLogin.Text && user.Password == PasswordBox.Password)
+                else if(user.Login == TextBoxLogin.Text && user.Password == hashedPassword)
                 {
                     MessageBox.Show("Пользователь успешно найден!");
 
@@ -80,6 +91,12 @@ namespace _121_Rulko.Pages
 
             }
         }
+
+        private void BtnReg_Click(object sender, RoutedEventArgs e)
+        {
+            NavigationService?.Navigate(new RegPage());
+        }
+
     }
 
 }

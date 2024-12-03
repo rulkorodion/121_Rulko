@@ -36,8 +36,8 @@
         <TextBox x:Name="TextBoxLogin" Grid.Column="2" Grid.Row="1" HorizontalAlignment="Left" VerticalAlignment="Top" ToolTip="Логин или почта" TextChanged="TextBoxLogin_Changed"/>
         <Label Content="Пароль" Grid.Column="1" Grid.Row="1" HorizontalAlignment="Center" Margin="0,35,0,0" VerticalAlignment="Top"/>
         <PasswordBox x:Name="PasswordBox" Grid.Column="2" Grid.Row="1" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="0,35,0,0" ToolTip="Пароль" PasswordChanged="PasswordBox_Changed"/>
-        <Button Grid.Column="2" Content="Вход" HorizontalAlignment="Left" Margin="0,92,0,0" Grid.Row="1" VerticalAlignment="Top" Width="150" ToolTip="Войти" Click="Button_Click"/>
-        <Button Grid.Column="2" Content="Регестрация" HorizontalAlignment="Left" Margin="0,127,0,0" Grid.Row="1" VerticalAlignment="Top" Width="150" ToolTip="Зарегестрироваться"/>
+        <Button Name="BtnInput" Grid.Column="2" Content="Вход" HorizontalAlignment="Left" Margin="0,92,0,0" Grid.Row="1" VerticalAlignment="Top" Width="150" ToolTip="Войти" Click="BtnInput_Click"/>
+        <Button Name="BtnReg" Grid.Column="2" Content="Регистрация" HorizontalAlignment="Left" Margin="0,127,0,0" Grid.Row="1" VerticalAlignment="Top" Width="150" ToolTip="Зарегестрироваться" Click="BtnReg_Click"/>
         
     </Grid>
 </Page>
