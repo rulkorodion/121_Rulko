@@ -80,10 +80,10 @@ namespace _121_Rulko.Pages
 
                     switch (user.Role)
                     {
-                        case "user":
+                        case "Пользователь":
                             NavigationService?.Navigate(new User());
                             break;
-                        case "admin":
+                        case "Администратор":
                             NavigationService?.Navigate(new Admin());
                             break;
                     }

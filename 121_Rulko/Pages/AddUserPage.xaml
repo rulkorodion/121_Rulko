@@ -1,0 +1,50 @@
+﻿<Page x:Class="_121_Rulko.Pages.AddUserPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:_121_Rulko.Pages"
+      mc:Ignorable="d" 
+      d:DesignHeight="300" d:DesignWidth="800"
+      Title="AddUserPage" Background="LightBlue">
+
+    <Grid>
+        <TextBlock Text="Логин" Foreground="Gray"
+        Name="txtHintLogin" Margin="458,41,0,0" 
+        VerticalAlignment="Top" Width="120" 
+        HorizontalAlignment="Left" FontSize="12pt" 
+        FontFamily="Tahoma"/>
+        <TextBlock Text="Пароль" Foreground="Gray"
+        Name="txtHintPassword" Margin="458,81,0,0" 
+        VerticalAlignment="Top" Width="120" 
+        HorizontalAlignment="Left" FontSize="12pt" 
+        FontFamily="Tahoma"/>
+        <TextBlock Text="ФИО" Foreground="Gray"
+        Name="txtHintFIO" Margin="458,161,0,0" 
+        VerticalAlignment="Top" Width="120" 
+        HorizontalAlignment="Left" FontSize="12pt" 
+        FontFamily="Tahoma"/>
+        <TextBlock Text="Фото" Foreground="Gray"
+        Name="txtHintPhoto" Margin="458,201,0,0" 
+        VerticalAlignment="Top" Width="120" 
+        HorizontalAlignment="Left" FontSize="12pt" 
+        FontFamily="Tahoma"/>
+
+        <Label Content="Логин" Width="Auto" Margin="188,36,0,0" VerticalAlignment="Top"/>
+        <Label Content="Пароль" Width="Auto" Margin="188,76,0,0" VerticalAlignment="Top"/>
+        <Label Content="Роль" Width="Auto" Margin="188,116,0,0" VerticalAlignment="Top"/>
+        <Label Content="ФИО" Width="Auto" Margin="188,156,0,0" VerticalAlignment="Top"/>
+        <Label Content="Фото (необязательно)" Width="Auto" Margin="188,196,0,0" VerticalAlignment="Top"/>
+        <TextBox x:Name="TextBoxLogin" Text="{Binding Login}" HorizontalAlignment="Left" Margin="458,36,0,0" VerticalAlignment="Top" ToolTip="Логин" TextChanged="TextBoxLogin_TextChanged"/>
+        <TextBox x:Name="TextBoxPassword" Text="{Binding Password}" HorizontalAlignment="Left" Margin="458,76,0,0" VerticalAlignment="Top" ToolTip="Пароль" TextChanged="TextBoxPassword_TextChanged"/>
+        <ComboBox Name="CmbRole" SelectedItem="{Binding Role}" HorizontalAlignment="Left" Margin="458,116,0,0" VerticalAlignment="Top" ToolTip="Роль">
+            <ComboBoxItem Content="Администратор"/>
+            <ComboBoxItem Content="Пользователь" IsSelected="True"/>
+        </ComboBox>
+        <TextBox x:Name="TextBoxFIO" Text="{Binding FIO}" HorizontalAlignment="Left" Margin="458,156,0,0" VerticalAlignment="Top" ToolTip="ФИО" TextChanged="TextBoxFIO_TextChanged"/>
+        <TextBox x:Name="TextBoxPhoto" Text="{Binding Photo}" HorizontalAlignment="Left" Margin="458,196,0,0" VerticalAlignment="Top" ToolTip="Фото" TextChanged="TextBoxPhoto_TextChanged"/>
+        <Button Name="ButtonCancel" Content="Отмена" HorizontalAlignment="Left" Margin="184,236,0,0" VerticalAlignment="Top" Width="150" ToolTip="Отмена" Click="ButtonCancel_Click"/>
+        <Button Name="ButtonSave" Content="Сохранить" HorizontalAlignment="Left" Margin="458,236,0,0" VerticalAlignment="Top" Width="150" ToolTip="Сохранить" Click="ButtonSave_Click"/>
+    </Grid>
+
+</Page>

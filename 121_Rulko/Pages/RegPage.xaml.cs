@@ -142,11 +142,6 @@ namespace _121_Rulko.Pages
 
             string role = string.Empty;
 
-            if (CmbRole.Text == "Администратор")
-                role = "admin";
-            else if (CmbRole.Text == "Пользователь")
-                role = "user";
-
             using (var db = new Entities())
             {
                 _121_Rulko.User newUser = new _121_Rulko.User
@@ -154,13 +149,14 @@ namespace _121_Rulko.Pages
                     FIO = TextBoxFIO.Text,
                     Login = TextBoxLogin.Text,
                     Password = GetHash(PasswordBox.Password),
-                    Role = role
+                    Role = CmbRole.Text
                 };
 
                 db.User.Add(newUser);
                 db.SaveChanges();
+                MessageBox.Show("Регистрация прошла успешно!");
+                NavigationService?.Navigate(new AuthPage());
             }
-            MessageBox.Show("Регистрация прошла успешно!");
         }
 
     }
