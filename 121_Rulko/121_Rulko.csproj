@@ -82,10 +82,20 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
-    <Compile Include="Model_Rulko.cs">
+    <Compile Include="121_Rulko.Context.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>Model_Rulko.tt</DependentUpon>
+      <DependentUpon>121_Rulko.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="121_Rulko.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>121_Rulko.tt</DependentUpon>
+    </Compile>
+    <Compile Include="121_Rulko.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>121_Rulko.edmx</DependentUpon>
     </Compile>
     <Compile Include="Pages\AddUserPage.xaml.cs">
       <DependentUpon>AddUserPage.xaml</DependentUpon>
@@ -102,8 +112,14 @@
     <Compile Include="Pages\User.xaml.cs">
       <DependentUpon>User.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Pages\UserPage.xaml.cs">
+      <DependentUpon>UserPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="sysdiagrams.cs">
+      <DependentUpon>121_Rulko.tt</DependentUpon>
+    </Compile>
     <Compile Include="User.cs">
-      <DependentUpon>Model_Rulko.tt</DependentUpon>
+      <DependentUpon>121_Rulko.tt</DependentUpon>
     </Compile>
     <Page Include="Dictionary.xaml">
       <SubType>Designer</SubType>
@@ -141,18 +157,12 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Pages\UserPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Model_Rulko.Context.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>Model_Rulko.Context.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Model_Rulko.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>Model_Rulko.edmx</DependentUpon>
-    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs">
       <SubType>Code</SubType>
     </Compile>
@@ -170,12 +180,12 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
-    <EntityDeploy Include="Model_Rulko.edmx">
+    <EntityDeploy Include="121_Rulko.edmx">
       <Generator>EntityModelCodeGenerator</Generator>
-      <LastGenOutput>Model_Rulko.Designer.cs</LastGenOutput>
+      <LastGenOutput>121_Rulko.Designer.cs</LastGenOutput>
     </EntityDeploy>
-    <None Include="Model_Rulko.edmx.diagram">
-      <DependentUpon>Model_Rulko.edmx</DependentUpon>
+    <None Include="121_Rulko.edmx.diagram">
+      <DependentUpon>121_Rulko.edmx</DependentUpon>
     </None>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
@@ -208,19 +218,20 @@
     <Resource Include="pandochka.ico" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Model_Rulko.Context.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <LastGenOutput>Model_Rulko.Context.cs</LastGenOutput>
-      <DependentUpon>Model_Rulko.edmx</DependentUpon>
-    </Content>
-    <Content Include="Model_Rulko.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>Model_Rulko.edmx</DependentUpon>
-      <LastGenOutput>Model_Rulko.cs</LastGenOutput>
-    </Content>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
   <ItemGroup>
-    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+    <Content Include="121_Rulko.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>121_Rulko.edmx</DependentUpon>
+      <LastGenOutput>121_Rulko.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="121_Rulko.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>121_Rulko.edmx</DependentUpon>
+      <LastGenOutput>121_Rulko.cs</LastGenOutput>
+    </Content>
+    <Resource Include="Resources\DefaultPhoto.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
